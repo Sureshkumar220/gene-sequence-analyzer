@@ -49,16 +49,16 @@ if st.button("Analyze"):
         st.write(translate_sequence(sequence)[:100] + "...")
 
 
-# st.write("### ORFs (Open Reading Frames)")
+st.write("### ORFs (Open Reading Frames)")
 
-# orfs = find_orfs(sequence)
+orfs = find_orfs(sequence)
 
-# if len(orfs) == 0:
-#     st.write("No ORFs found")
-# else:
-#     st.write(f"Total ORFs found: {len(orfs)}")
+if len(orfs) == 0:
+    st.write("No ORFs found")
+else:
+    st.write(f"Total ORFs found: {len(orfs)}")
 
-#     for i, orf in enumerate(orfs[:5]):  # show first 5
-#         st.write(f"ORF {i+1}")
-#         st.write(f"Start: {orf['start']} | End: {orf['end']} | Length: {orf['length']}")
-#         st.write(orf['sequence'][:60] + "...")
+    for i, orf in enumerate(orfs[:5]):  # show first 5
+        st.write(f"ORF {i+1}")
+        st.write(f"Start: {orf['start']} | End: {orf['end']} | Length: {orf['length']}")
+        st.write(orf['sequence'][:60] + "...")
