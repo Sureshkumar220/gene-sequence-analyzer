@@ -36,29 +36,29 @@ def translate_sequence(seq):
 
 #ORF finder
 
-# def find_orfs(seq):
-#     seq = seq.upper()
-#     start_codon = "ATG"
-#     stop_codons = ["TAA", "TAG", "TGA"]
+def find_orfs(seq):
+    seq = seq.upper()
+    start_codon = "ATG"
+    stop_codons = ["TAA", "TAG", "TGA"]
 
-#     orfs = []
+    orfs = []
 
-#     for frame in range(3):  # 3 reading frames
-#         for i in range(frame, len(seq) - 2, 3):
-#             codon = seq[i:i+3]
+    for frame in range(3):  # 3 reading frames
+        for i in range(frame, len(seq) - 2, 3):
+            codon = seq[i:i+3]
 
-#             if codon == start_codon:
-#                 for j in range(i, len(seq) - 2, 3):
-#                     stop = seq[j:j+3]
+            if codon == start_codon:
+                for j in range(i, len(seq) - 2, 3):
+                    stop = seq[j:j+3]
 
-#                     if stop in stop_codons:
-#                         orf_seq = seq[i:j+3]
-#                         orfs.append({
-#                             "start": i,
-#                             "end": j+3,
-#                             "length": len(orf_seq),
-#                             "sequence": orf_seq
-#                         })
-#                         break
+                    if stop in stop_codons:
+                        orf_seq = seq[i:j+3]
+                        orfs.append({
+                            "start": i,
+                            "end": j+3,
+                            "length": len(orf_seq),
+                            "sequence": orf_seq
+                        })
+                        break
 
-#     return orfs
+    return orfs
